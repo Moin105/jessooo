@@ -1,18 +1,18 @@
 import logo from './logo.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import SideBar from './Components/SideBar';
 import Container from './Components/Container';
 function App() {
+  const [show, setShow] = useState(true)
   return (
     <div className="App">
       <div className='wrapper'>
       <React.Fragment>
-         <SideBar/>
+         <SideBar   show={show} setShow={setShow}/>
       </React.Fragment>
       <React.Fragment>
-         {/* <SideBar/> */}
-         <Container/>
+         <Container  show={show} setShow={setShow}/>
       </React.Fragment>
       </div>
      

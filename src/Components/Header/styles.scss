@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     padding: 15px 25px;
-    justify-content: flex-end;
+    justify-content:space-between;
     border-bottom: 1px solid #EBEBEB;
     // margin-bottom: 30px;
     .circle{
@@ -17,15 +17,18 @@
     }
 }
 .menu{
-    display: none;
-}
+     
+    font-size: 30px;
+    color: #848489;
+  //   background-color: black;
+  }
 @media only screen and (max-width: 900px) {
     .header{
         justify-content: space-between;
     }
     
     .menu{
-      display: block;
+     
       font-size: 30px;
       color: #848489;
     //   background-color: black;
