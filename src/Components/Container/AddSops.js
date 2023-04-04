@@ -1,24 +1,62 @@
 import React from 'react';
-import TextArea from 'antd/es/input/TextArea'
-
+import { useRef, useEffect } from 'react';
+import EditorJS from '@editorjs/editorjs';
+import { createReactEditorJS } from 'react-editor-js'
+import  {EDITOR_JS_TOOLS } from './tool'
+import Embed from '@editorjs/embed'
+import Table from '@editorjs/table'
+import List from '@editorjs/list'
+import Warning from '@editorjs/warning'
+import Code from '@editorjs/code'
+import LinkTool from '@editorjs/link'
+import Image from '@editorjs/image'
+import Raw from '@editorjs/raw'
+import Header from '@editorjs/header'
+import Quote from '@editorjs/quote'
+import Marker from '@editorjs/marker'
+import CheckList from '@editorjs/checklist'
+import Delimiter from '@editorjs/delimiter'
+import InlineCode from '@editorjs/inline-code'
+import SimpleImage from '@editorjs/simple-image'
+const ReactEditorJS = createReactEditorJS()
 
 function AddSops() {
+const editorRef = useRef(null);
+
+  useEffect(() => {
+    if (editorRef.current) {
+      const editor = new EditorJS({
+        holder: editorRef.current,
+        autofocus: true,
+        initialBlock: 'toolbox',
+        tools: {
+          header: {
+            class: Header,
+            inlineToolbar: true,
+          },
+          list: {
+            class: List,
+            inlineToolbar: true,
+            
+          },
+          checkList: {
+            class: CheckList,
+            inlineToolbar: true,
+          },
+        },
+      });
+    }else{
+      return
+    }
+  }, []);
+
   return (
     <React.Fragment>
                  <div className='container-sop'>
             <h3>Add SOP</h3>
-            {/* <Sops/> */}
             <div className='sop-container-row'>
-                <input type='text' placeholder='Search SOPs'/>
-                <input type='text' placeholder='Search SOPs'/>
-                {/* <button>Add SOP</button> */}
-            </div>
-            <div className='sop-container-row'>
-                <input type='text' placeholder='Search SOPs'/>
-                <TextArea/>
-              
-            </div>  
-            <button>Create SOP</button>
+            <div className='moon' ref={editorRef}></div>
+           </div>
             </div>
     </React.Fragment>
   )

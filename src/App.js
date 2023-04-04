@@ -4,7 +4,7 @@ import './App.css';
 import SideBar from './Components/SideBar';
 import Container from './Components/Container';
 function App() {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
   return (
     <div className="App">
       <div className='wrapper'>
@@ -15,8 +15,6 @@ function App() {
          <Container  show={show} setShow={setShow}/>
       </React.Fragment>
       </div>
-     
-   
     </div>
   );
 }
