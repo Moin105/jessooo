@@ -9,6 +9,8 @@ body{
 }
 .wrapper{
   display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 @font-face {
   font-family: 'SF Pro Display';
